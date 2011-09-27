@@ -1,0 +1,38 @@
+{
+    "name" : "learn.js",
+    "description" : "Presentation tool for teaching interactive lessons",
+    "version" : "0.0.0",
+    "repository" : {
+        "type" : "git",
+        "url" : "git://github.com/substack/learn.js.git"
+    },
+    "bin" : {
+        "learn.js" : "server.js"
+    },
+    "keywords" : [
+        "learn",
+        "education",
+        "classroom",
+        "interactive"
+    ],
+    "directories" : {
+        "lib" : ".",
+        "example" : "example",
+        "test" : "test"
+    },
+    "dependencies" : {
+        "jquery-browserify" : "1.6.x",
+        "express" : "1.6.x",
+        "dnode" : "1.6.x",
+        "browserify" : "1.5.x",
+    },
+    "engines" : {
+        "node" : ">=0.4.0"
+    },
+    "license" : "MIT",
+    "author" : {
+        "name" : "James Halliday",
+        "email" : "mail@substack.net",
+        "url" : "http://substack.net"
+    }
+}

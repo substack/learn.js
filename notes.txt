@@ -1,0 +1,12 @@
+learn.js
+--------
+
+to start:
+pin your name onto a classroom map
+
+the map updates in realtime as each of the interactive challenges are solved by
+each of the students
+
+
+functions fly first class!
+[comic: array literal, object literal, number, string, boolean, regex]

@@ -1,0 +1,48 @@
+body {
+    padding: 0px;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    overflow-y: hidden;
+}
+
+#header {
+    margin-top: 0px;
+    margin-left: 0px;
+    width: 100%;
+    height: 40px;
+    background-color: rgb(50,50,200);
+    color: white;
+    font-weight: bold;
+}
+
+#header-inner {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#header-name {
+    font-size: 25px;
+}
+
+#content {
+    width: 100%;
+    height: 400px;
+    display: none;
+    overflow-x: auto;
+    overflow-y: scroll;
+    min-height: 400px;
+    background-color: rgb(200,200,220);
+}
+
+#content-inner {
+    background-color: white;
+    width: 740px;
+    margin: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
