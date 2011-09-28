@@ -3,7 +3,9 @@ var cookie = require('cookie-cutter');
 var namesList = require('./names_list');
 
 module.exports = function (remote, conn) {
-    var names = namesList(remote);
+    var names = namesList(remote, conn);
+    
+    remote.myNameIs($('#name').val());
     
     var to = null;
     function setName () {

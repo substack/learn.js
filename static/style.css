@@ -132,6 +132,7 @@ body {
 }
 
 #classroom .map {
+    position: relative;
     display: none;
     margin-top: 40px;
     margin-right: 5px;
@@ -143,14 +144,14 @@ body {
     
     background-color: rgb(220,220,240);
     
-    width: 400px;
-    height: 400px;
+    width: 700px;
+    height: 500px;
 }
 
 #classroom .close {
     position: absolute;
-    top: 35px;
-    right: 7px;
+    top: -12px;
+    right: -12px;
     text-align: center;
     
     height: 25px;
@@ -165,4 +166,11 @@ body {
 
 #classroom .close:hover {
     background-color: rgb(240,20,40);
+}
+
+#classroom .desk {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    color: black;
 }
