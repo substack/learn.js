@@ -1,28 +1,48 @@
-var units = module.exports = [];
+var units = [];
 
-units.push([ 'what programming is', function () {
-} ]);
+units.push({
+    title : 'what programming is',
+    filename : 'what.html'
+});
 
-units.push([ 'javascript the calculator', function () {
-} ]);
+units.push({
+    title : 'javascript the calculator',
+    filename : 'calculator.html',
+    challenge : require('./calculator.js')
+});
 
-units.push([ 'you know the type', function () {
-} ]);
+units.push({
+    title : 'types'
+});
 
-units.push([ 'objects', function () {
-} ]);
+units.push({
+    title : 'objects'
+});
 
-units.push([ 'arrays', function () {
-} ]);
+units.push({
+    title : 'arrays'
+});
 
-units.push([ 'conditionals', function () {
-} ]);
+units.push({
+    title : 'conditionals'
+});
 
-units.push([ 'loops', function () {
-} ]);
+units.push({
+    title : 'loops'
+});
 
-units.push([ 'functions', function () {
-} ]);
+units.push({
+    title : 'functions'
+});
 
-units.push([ 'higher order functions', function () {
-} ]);
+units.push({
+    title : 'higher order functions'
+});
+
+var fs = require('fs');
+module.exports = units.map(function (unit) {
+    if (!unit.body && unit.filename) {
+        unit.body = fs.readFileSync(__dirname + '/' + unit.filename, 'utf8');
+    }
+    return unit;
+});

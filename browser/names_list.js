@@ -34,6 +34,7 @@ module.exports = function (remote, conn) {
                 'margin-top' : pos.top
             })
         ;
+        if (map.is(':hidden')) elem.hide();
         
         if (id === myId) {
             var down = false;

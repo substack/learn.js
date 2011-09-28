@@ -4,14 +4,8 @@ var argv = require('optimist')
     .usage('Usage: $0 [lesson]')
     .argv
 ;
-var lessons = argv._.map(function (x) {
-    try {
-        return require(x)
-    }
-    catch (err) {
-        return require('./' + x);
-    }
-});
+var path = require('path');
+var units = require(path.resolve(process.cwd(), argv._[0]));
 
 var express = require('express');
 var app = express.createServer();
@@ -23,7 +17,7 @@ app.use(require('browserify')({
 }));
 
 var dnode = require('dnode');
-dnode(require('./lib/service')).listen(app);
+dnode(require('./lib/service')(units)).listen(app);
 
 var port = argv.port || 8000;
 app.listen(port);
