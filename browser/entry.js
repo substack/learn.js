@@ -28,10 +28,12 @@ $(window).load(function () {
             if (map.is(':visible')) {
                 button.removeClass('active')
                 $('#classroom .map').fadeOut(200);
+                $('.desk').fadeOut(200);
             }
             else {
                 button.addClass('active')
                 $('#classroom .map').fadeIn(200);
+                $('.desk').fadeIn(200);
             }
         };
     })();
