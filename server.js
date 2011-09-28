@@ -22,6 +22,9 @@ app.use(require('browserify')({
     watch : true,
 }));
 
+var dnode = require('dnode');
+dnode(require('./lib/service')).listen(app);
+
 var port = argv.port || 8000;
 app.listen(port);
 console.log('Listening on :' + port);
