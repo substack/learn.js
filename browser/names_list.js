@@ -9,8 +9,10 @@ module.exports = function (remote, conn) {
     var elems = {};
     var em = new EventEmitter;
     var emit = function () { em.emit.apply(em, arguments) };
+    var myId = null;
     
-    remote.subscribe(emit, function () {
+    remote.subscribe(emit, function (id) {
+        myId = id;
         var cpos = cookie.get('pos');
         var pos = cpos && json.parse(cpos) || {
             top : Math.floor(Math.random() * (map.height() - 10)),
@@ -32,7 +34,43 @@ module.exports = function (remote, conn) {
                 'margin-top' : pos.top
             })
         ;
-        if (id === conn.id) {
+        
+        if (id === myId) {
+            var down = false;
+            var prev = null;
+            elem
+                .css('cursor', 'pointer')
+                .mousedown(function (ev) {
+                    down = true;
+                    prev = { x : ev.pageX, y : ev.pageY };
+                })
+                .mouseup(function () {
+                    remote.myPosIs(pos);
+                    down = false;
+                })
+                .mousemove(function (ev) {
+                    if (down) {
+                        pos.left += ev.pageX - prev.x;
+                        pos.top += ev.pageY - prev.y;
+                        elem.css({
+                            'margin-left' : pos.left,
+                            'margin-top' : pos.top
+                        });
+                        prev = { x : ev.pageX, y : ev.pageY };
+                    }
+                })
+            ;
+            map.mousemove(function (ev) {
+                if (down) {
+                    pos.left += ev.pageX - prev.x;
+                    pos.top += ev.pageY - prev.y;
+                    elem.css({
+                        'margin-left' : pos.left,
+                        'margin-top' : pos.top
+                    });
+                    prev = { x : ev.pageX, y : ev.pageY };
+                }
+            });
         }
     }
     

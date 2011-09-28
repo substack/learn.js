@@ -146,6 +146,10 @@ body {
     
     width: 700px;
     height: 500px;
+    
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
 }
 
 #classroom .close {
@@ -170,6 +174,9 @@ body {
 
 #classroom .desk {
     position: absolute;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
     top: 0px;
     left: 0px;
     color: black;
