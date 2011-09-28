@@ -19,5 +19,11 @@ module.exports = function (remote, conn) {
             to = null;
         }, 250);
     }
-    $('#name').change(setName).keyup(setName);
+    $('#name')
+        .change(setName)
+        .keydown(setName)
+        .submit(function (ev) {
+            ev.preventDefault();
+        })
+    ;
 };
