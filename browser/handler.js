@@ -46,6 +46,16 @@ module.exports = function (remote, conn) {
                 .html(unit.body || '')
                 .appendTo(elem)
             ;
+            
+            if (unit.scriptBody) {
+                var context = {
+                    require : require,
+                    module : { exports : {} }
+                };
+                context.exports = context.module.exports;
+                vm.runInNewContext(unit.scriptBody, context);
+                context.module.exports(unit, remote);
+            }
         });
         
         $('.repl').each(function () {

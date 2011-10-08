@@ -24,9 +24,20 @@ module.exports = function (remote, conn) {
     
     function addElem (id) {
         var pos = users[id].position;
+        var nameSpan = $('<span>')
+            .addClass('name')
+            .text(users[id].name || '...')
+        ;
+        
+        var pointSpan = $('<span>')
+            .addClass('points')
+            .text((users[id].points || 0).toString())
+        ;
+        
         var elem = elems[id] = $('<div>')
             .addClass('desk')
-            .text(users[id].name || '...')
+            .append(nameSpan)
+            .append('[', pointSpan, ']')
             .fadeIn(400)
             .appendTo($('#classroom'))
             .css({
@@ -90,7 +101,19 @@ module.exports = function (remote, conn) {
         if (users[id]) {
             users[id].name = name;
             if (elems[id]) {
-                elems[id].text(name)
+                elems[id].find('.name').text(name || '')
+            }
+        }
+    });
+    
+    em.on('points', function (id, points) {
+        if (users[id]) {
+            users[id].points = points;
+            if (elems[id]) {
+                elems[id].find('.points').text((points || 0).toString())
+            }
+            if (id === myId) {
+                $('#points').text(points.toString());
             }
         }
     });

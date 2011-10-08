@@ -2,7 +2,8 @@ var units = [];
 
 units.push({
     title : 'what programming is',
-    filename : 'what.html'
+    filename : 'what.html',
+    script : 'what.js'
 });
 
 units.push({
@@ -44,6 +45,12 @@ var fs = require('fs');
 module.exports = units.map(function (unit) {
     if (!unit.body && unit.filename) {
         unit.body = fs.readFileSync(__dirname + '/' + unit.filename, 'utf8');
+    }
+    
+    if (unit.script) {
+        unit.scriptBody = fs.readFileSync(
+            __dirname + '/' + unit.script, 'utf8'
+        );
     }
     return unit;
 });
