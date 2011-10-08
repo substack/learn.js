@@ -1,9 +1,89 @@
+<div>
 It's easy to get started using javascript as a calculator.
-
-<div class="repl"></div>
+</div>
 
 <div>
 You can type arithmetic mathematical expressions like 2 + 3 * 5.
 This is known as
 <a href="http://en.wikipedia.org/wiki/Infix_notation">infix notation</a>.
+Try some expressions for yourself in the box below!
+</div>
+
+<div>
+Here are some operators to get you started:
+</div>
+
+<table>
+  <tr>
+    <th>symbol</th>
+    <th>operation</th>
+  </tr>
+  <tr>
+    <td>+</td>
+    <td>addition</td>
+  </tr>
+  <tr>
+    <td>-</td>
+    <td>subtraction</td>
+  </tr>
+  <tr>
+    <td>/</td>
+    <td>division</td>
+  </tr>
+  <tr>
+    <td>*</td>
+    <td>multiplication</td>
+  </tr>
+  <tr>
+    <td>%</td>
+    <td>modulo</td>
+  </tr>
+</table>
+
+<div class="repl"></div>
+
+<div>
+Note that in the expression,
+<span class="code">2 + 3 * 5</span>
+the result is <span class="code">17</span>
+instead of
+<span class="code">25</span>.
+As you may remember from algebra class,
+multiplication (<span class="code">*</span>)
+is higher up on the
+<a href="http://en.wikipedia.org/wiki/Order_of_operations">order of operations</a>
+than addition (<span class="code">+</span>).
+In programming languages this order of operations is often called
+operator precedence.
+</div>
+
+<div>
+<a href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Operator_Precedence">Read more about operator precedence in javascript</a>.
+</div>
+
+<div>
+This type of interactive, calculator-style environment is called a
+<a href="http://en.wikipedia.org/wiki/REPL">REPL</a>.
+<a href="http://en.wikipedia.org/wiki/REPL">REPL</a>
+is short for Read-Eval-Print-Loop.
+The REPL reads your input, evaluates the input you gave it, prints the result of
+the evaluation, and then starts all over again reading input.
+</div>
+
+<div>
+Sometimes storing a result for later is convenient. Use the
+<span class="code">var</span> keyword for that.
+</div>
+
+<pre>
+var x = 3 * 2 + 5
+</pre>
+
+<div>
+Now whenever you use the <span class="code">x</span> name in an expression, the
+value of <span class="code">x</span> will be used!
+</div>
+
+<div>
+Try this in the REPL:
 </div>
