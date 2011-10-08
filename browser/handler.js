@@ -1,7 +1,8 @@
 var $ = require('jquery-browserify');
 var cookie = require('cookie-cutter');
+
+var stringify = require('./stringify');
 var namesList = require('./names_list');
-var json = require('jsonify');
 
 module.exports = function (remote, conn) {
     var names = namesList(remote, conn);
@@ -68,6 +69,7 @@ module.exports = function (remote, conn) {
                         .text(err.toString())
                         .appendTo(output)
                     ;
+                    $(this).scrollTop(100000);
                     return;
                 }
                 
@@ -83,7 +85,7 @@ module.exports = function (remote, conn) {
                 }
                 else if (typeof res === 'object') {
                     $('<div>')
-                        .text(json.stringify(res))
+                        .text(stringify(res))
                         .appendTo(output)
                     ;
                 }

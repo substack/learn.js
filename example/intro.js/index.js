@@ -12,7 +12,8 @@ units.push({
 });
 
 units.push({
-    title : 'types'
+    title : 'types',
+    filename : 'types.html'
 });
 
 units.push({

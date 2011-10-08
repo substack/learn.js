@@ -11,11 +11,6 @@ var express = require('express');
 var app = express.createServer();
 app.use(express.static(__dirname + '/static'));
 
-app.use(require('browserify')({
-    entry : __dirname + '/browser/entry.js',
-    watch : true,
-}));
-
 var dnode = require('dnode');
 dnode(require('./lib/service')(units)).listen(app);
 

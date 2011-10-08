@@ -25,6 +25,7 @@
         "express" : "2.4.x",
         "dnode" : "0.8.x",
         "browserify" : "1.5.x",
+        "traverse" : "0.5.x",
         "cookie-cutter" : "0.0.x",
         "jsonify" : "0.0.x"
     },

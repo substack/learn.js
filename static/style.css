@@ -206,13 +206,16 @@ body {
 .repl {
     margin-top: 5px;
     
-    width: 650px;
+    width: 655px;
     height: 300px;
     background-color: rgb(50,50,50);
-    color: rgb(200,255,200);
+    color: rgb(150,255,150);
     font-family: monospace;
     border-radius: 10px;
     padding: 10px;
+    
+    overflow-y: scroll;
+    overflow-x: auto;
 }
 
 .repl .output {
@@ -223,6 +226,10 @@ body {
 
 .repl .output .error {
     color: rgb(230,150,150);
+}
+
+.repl .prev {
+    color: rgb(200,200,200);
 }
 
 .repl input {
@@ -249,4 +256,9 @@ body {
     color: white;
     font-size: 20px;
     font-weight: bold;
+}
+
+#units div {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
