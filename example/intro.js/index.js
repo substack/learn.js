@@ -13,9 +13,23 @@ units.push({
 });
 
 units.push({
+    title : 'functions',
+    filename : 'functions.html'
+});
+
+units.push({
     title : 'types',
     filename : 'types.html',
     script : 'types.js'
+});
+
+units.push({
+    title : 'updating variables',
+    filename : 'update.html'
+});
+
+units.push({
+    title : 'conditionals'
 });
 
 units.push({
@@ -25,19 +39,12 @@ units.push({
 });
 
 units.push({
-    title : 'arrays'
-});
-
-units.push({
-    title : 'conditionals'
+    title : 'arrays',
+    filename : 'arrays.html'
 });
 
 units.push({
     title : 'loops'
-});
-
-units.push({
-    title : 'functions'
 });
 
 units.push({

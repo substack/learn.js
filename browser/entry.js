@@ -82,7 +82,12 @@ $(window).load(function () {
                 }
             }
         };
-        vm.runInNewContext(src, context);
-        output.text(lines.join('\n'));
+        try {
+            vm.runInNewContext(src, context);
+            output.text(lines.join('\n'));
+        }
+        catch (err) {
+            output.text(err.toString());
+        }
     });
 });
