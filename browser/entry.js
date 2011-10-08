@@ -27,12 +27,12 @@ $(window).load(function () {
         return function () {
             if (map.is(':visible')) {
                 button.removeClass('active')
-                $('#classroom .map').fadeOut(200);
+                map.fadeOut(200);
                 $('.desk').fadeOut(200);
             }
             else {
                 button.addClass('active')
-                $('#classroom .map').fadeIn(200);
+                map.fadeIn(200);
                 $('.desk').fadeIn(200);
             }
         };
@@ -40,4 +40,22 @@ $(window).load(function () {
     
     $('#classroom .button').click(toggleMap);
     $('#classroom .close').click(toggleMap);
+    
+    var toggleRepl = (function () {
+        var repl = $('#top-repl .repl-container');
+        var button = $('#top-repl .button');
+        return function () {
+            if (repl.is(':visible')) {
+                button.removeClass('active')
+                repl.fadeOut(200);
+            }
+            else {
+                button.addClass('active')
+                repl.fadeIn(200);
+            }
+        };
+    })();
+    
+    $('#top-repl .button').click(toggleRepl);
+    $('#top-repl .close').click(toggleRepl);
 });

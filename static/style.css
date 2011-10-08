@@ -113,6 +113,72 @@ body {
     color: rgb(200,200,255);
 }
 
+.close {
+    text-align: center;
+    
+    height: 25px;
+    width: 25px;
+    
+    border-radius: 20px;
+    background-color: rgb(200,40,80);
+    color: white;
+    
+    cursor: pointer;
+}
+
+.close:hover {
+    background-color: rgb(240,20,40);
+}
+
+
+.button {
+    background-color: rgb(150,150,220);
+    width: 75px;
+    height: 30px;
+    font-size: 22px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.button.active {
+    background-color: rgb(200,200,255);
+}
+
+.button:hover {
+    background-color: rgb(200,200,255);
+}
+
+
+#top-repl {
+    position: absolute;
+    right: 100px;
+    top: 5px;
+}
+
+#top-repl .repl-container {
+    display: none;
+    padding-top: 40px;
+}
+
+#top-repl .repl-container .repl {
+    border-style: solid;
+    border-width: 8px;
+    border-color: rgb(100,100,255);
+}
+
+#top-repl .button {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+#top-repl .close {
+    position: absolute;
+    top: 40px;
+    right: 25px;
+}
+
 #classroom {
     position: absolute;
     right: 0px;
@@ -123,21 +189,6 @@ body {
     position: absolute;
     right: 15px;
     top: 0px;
-    background-color: rgb(150,150,220);
-    width: 75px;
-    height: 30px;
-    font-size: 22px;
-    text-align: center;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-#classroom .button.active {
-    background-color: rgb(200,200,255);
-}
-
-#classroom .button:hover {
-    background-color: rgb(200,200,255);
 }
 
 #classroom .map {
@@ -165,20 +216,6 @@ body {
     position: absolute;
     top: -12px;
     right: -12px;
-    text-align: center;
-    
-    height: 25px;
-    width: 25px;
-    
-    border-radius: 20px;
-    background-color: rgb(200,40,80);
-    color: white;
-    
-    cursor: pointer;
-}
-
-#classroom .close:hover {
-    background-color: rgb(240,20,40);
 }
 
 #classroom .desk {
