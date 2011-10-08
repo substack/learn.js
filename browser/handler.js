@@ -98,7 +98,17 @@ module.exports = function (remote, conn) {
                 acc[key] = context[key];
                 return acc;
             }, {});
-            context = {};
+            context = {
+                console : {
+                    log : function (s) {
+                        $('<div>').text(String(s)).appendTo(output);
+                    },
+                    dir : function (obj) {
+                        var s = stringify(obj);
+                        $('<div>').text(s).appendTo(output);
+                    }
+                }
+            };
             
             var form = $('<form>').submit(function (ev) {
                 ev.preventDefault();
