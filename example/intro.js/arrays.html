@@ -1,0 +1,46 @@
+<div>
+Arrays are similar to objects except that the elements are ordered and
+javascript provides many built-in functions for manipulating the elements of the
+array.
+</div>
+
+<div>
+Arrays can be created using array literal syntax:
+</div>
+
+<pre>
+var xs = [ 3, 4, 5 ]
+</pre>
+
+<div>
+To see how many elements an array has, use <span class="code">.length</span>:
+</div>
+
+<pre>
+var values = [ 'a', 'b', 'c', 'd' ]
+console.log(values.length)
+</pre>
+
+<div>
+Arrays can also be modified. When you <span class="code">.push(x)</span>,
+<span class="code">x</span> gets put onto the end of the array.
+When you <span class="code">.pop()</span>, the element at the end of the array
+is removed and its value is returned.
+</div>
+
+<pre>
+var xs = [ 9, 8 ]
+xs.push(11)
+console.dir(xs)
+var x = xs.pop()
+console.log('x = ' + x)
+console.dir(xs)
+</pre>
+
+<div>
+To see what methods array has built into it, you can do:
+</div>
+
+<pre>
+Object.getOwnPropertyNames(Array.prototype)
+</pre>
