@@ -57,6 +57,31 @@ module.exports = function (remote, conn) {
             
             $('<span>').text('>').appendTo(this);
             
+            var lines = [];
+            var lineIx = 0;
+            
+            repl.keydown(function (ev) {
+                if (ev.keyCode === 38) { // up
+                    ev.stopPropagation();
+                    if (lineIx === 0) {
+                        lines.push(input.val());
+                    }
+                    if (lineIx < lines.length) {
+                        lineIx ++;
+                        var ix = lines.length - lineIx - 1;
+                        input.val(lines[ix]);
+                    }
+                }
+                else if (ev.keyCode === 40) { // down
+                    ev.stopPropagation();
+                    if (lineIx > 0) {
+                        lineIx --;
+                        var ix = lines.length - lineIx - 1;
+                        input.val(lines[ix]);
+                    }
+                }
+            });
+            
             var context = {};
             vm.runInNewContext('1+1', context);
             var ignore = Object.keys(context).reduce(function (acc, key) {
@@ -69,6 +94,9 @@ module.exports = function (remote, conn) {
                 ev.preventDefault();
                 
                 var s = input.val();
+                lines.push(s);
+                lineIx = 0;
+                
                 try {
                     var res = vm.runInNewContext(s, context);
                     context = Object.keys(context)
