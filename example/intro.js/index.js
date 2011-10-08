@@ -9,7 +9,7 @@ units.push({
 units.push({
     title : 'javascript the calculator',
     filename : 'calculator.html',
-    challenge : require('./calculator.js')
+    script : 'calculator.js'
 });
 
 units.push({
