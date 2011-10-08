@@ -104,6 +104,15 @@ body {
     text-align: center;
 }
 
+#points-div {
+    display: inline-block;
+    width: 150px;
+    height: 35px;
+    margin-left: 50px;
+    vertical-align: middle;
+    color: rgb(200,200,255);
+}
+
 #classroom {
     position: absolute;
     right: 0px;
@@ -285,20 +294,30 @@ pre {
 table {
     margin-left: 30px;
     border-radius: 20px;
-    background-color: rgb(200,200,200);
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 5px;
-    padding-bottom: 10px;
+    background-color: rgb(200,200,240);
+    border-collapse: collapse;
 }
 
 table tr th {
-    padding-right: 10px;
-    padding-left: 10px;
     text-align: left;
+    background-color: rgb(20,20,80);
+    color: rgb(200,200,240);
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+table tr th.first {
+    border-top-left-radius: 20px;
+}
+
+table tr th.last {
+    border-top-right-radius: 20px;
 }
 
 table tr td {
-    padding-right: 10px;
-    padding-left: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 5px;
 }

@@ -15,8 +15,8 @@ Here are some operators to get you started:
 
 <table>
   <tr>
-    <th>symbol</th>
-    <th>operation</th>
+    <th class="first">symbol</th>
+    <th class="last">operation</th>
   </tr>
   <tr>
     <td>+</td>
@@ -72,7 +72,9 @@ the evaluation, and then starts all over again reading input.
 
 <div>
 Sometimes storing a result for later is convenient. Use the
-<span class="code">var</span> keyword for that.
+<span class="code">var</span>
+keyword and the equal sign
+(<span class="code">=</span>) to give a value a name.
 </div>
 
 <pre>
@@ -82,8 +84,23 @@ var x = 3 * 2 + 5
 <div>
 Now whenever you use the <span class="code">x</span> name in an expression, the
 value of <span class="code">x</span> will be used!
+You can use whatever names for variables you want, so long as they are all one
+word with no spaces and no punctuation except for
+<span class="code">_</span> and <span class="code">$</span>.
 </div>
 
 <div>
-Try this in the REPL:
+Let's compute the area of a circle!
+</div>
+
+<pre>
+var pi = 3.14
+var r = 5
+var area = pi * r * r
+</pre>
+
+<div>
+If you type these lines onto the REPL, now <span class="code">area</span> will
+have the value you wanted. Type <span class="code">area</span> by itself on the
+REPL to see its value.
 </div>
