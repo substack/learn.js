@@ -1,6 +1,9 @@
 var $ = require('jquery-browserify');
+var vm = require('vm');
 var dnode = require('dnode');
 var cookie = require('cookie-cutter');
+
+var stringify = require('./stringify');
 
 $(window).resize(function () {
     var h = $(window).height() - $('#header').height();
@@ -22,7 +25,7 @@ $(window).load(function () {
     $(window).trigger('resize');
     
     var toggleMap = (function () {
-        var map = $('#classroom .map');
+        var map = $('#classroom .container');
         var button = $('#classroom .button');
         return function () {
             if (map.is(':visible')) {
@@ -41,21 +44,45 @@ $(window).load(function () {
     $('#classroom .button').click(toggleMap);
     $('#classroom .close').click(toggleMap);
     
-    var toggleRepl = (function () {
-        var repl = $('#top-repl .repl-container');
-        var button = $('#top-repl .button');
-        return function () {
-            if (repl.is(':visible')) {
-                button.removeClass('active')
-                repl.fadeOut(200);
-            }
-            else {
-                button.addClass('active')
-                repl.fadeIn(200);
+    [ '#top-repl', '#top-script' ].forEach(function (name) {
+        var toggle = (function () {
+            var container = $(name + ' .container');
+            var button = $(name + ' .button');
+            return function () {
+                if (container.is(':visible')) {
+                    button.removeClass('active')
+                    container.fadeOut(200);
+                }
+                else {
+                    button.addClass('active')
+                    container.fadeIn(200);
+                }
+            };
+        })();
+        $(name + ' .button').click(toggle);
+        $(name + ' .close').click(toggle);
+    });
+    
+    $('.script .run input[type="button"]').click(function () {
+        var script = $(this).parents('.script');
+        var src = script.find('textarea').val();
+        var output = script.find('.output');
+        output.empty();
+        
+        var lines = [];
+        var context = {
+            require : require,
+            console : {
+                log : function (s) {
+                    lines.push(s);
+                },
+                dir : function (obj) {
+                    var s = stringify(obj);
+                    lines.push(s);
+                }
             }
         };
-    })();
-    
-    $('#top-repl .button').click(toggleRepl);
-    $('#top-repl .close').click(toggleRepl);
+        vm.runInNewContext(src, context);
+        output.text(lines.join('\n'));
+    });
 });

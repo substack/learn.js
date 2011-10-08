@@ -149,6 +149,57 @@ body {
     background-color: rgb(200,200,255);
 }
 
+#top-script {
+    position: absolute;
+    right: 185px;
+    top: 5px;
+}
+
+#top-script .container {
+    display: none;
+    padding-top: 40px;
+}
+
+.script {
+    background-color: rgb(100,100,255);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.script textarea {
+    width: 600px;
+    height: 300px;
+}
+
+.script .run {
+    text-align: center;
+}
+
+.script .run input {
+    width: 300px;
+    height: 30px;
+    border-radius: 10px;
+    border-width: 0px;
+    margin-top: 3px;
+    background-color: rgb(200,40,80);
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.script .output {
+    max-height: 200px;
+    overflow-y: auto;
+    white-space: pre;
+    word-wrap: break-word;
+    border-radius: 20px;
+    background-color: rgb(130,130,255);
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 5px;
+}
 
 #top-repl {
     position: absolute;
@@ -156,24 +207,24 @@ body {
     top: 5px;
 }
 
-#top-repl .repl-container {
+#top-repl .container {
     display: none;
     padding-top: 40px;
 }
 
-#top-repl .repl-container .repl {
+#top-repl .container .repl {
     border-style: solid;
     border-width: 8px;
     border-color: rgb(100,100,255);
 }
 
-#top-repl .button {
+.button {
     position: absolute;
     right: 0px;
     top: 0px;
 }
 
-#top-repl .close {
+.close {
     position: absolute;
     top: 40px;
     right: 25px;
@@ -191,7 +242,7 @@ body {
     top: 0px;
 }
 
-#classroom .map {
+#classroom .container {
     position: relative;
     display: none;
     margin-top: 40px;
