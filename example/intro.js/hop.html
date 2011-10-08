@@ -1,0 +1,211 @@
+<div>
+In javascript, functions are <b>first class</b>.
+This means that they are values and can be assigned to variables just like
+numbers, strings, and booleans can.
+</div>
+
+<div>
+For instance, we can define a function:
+</div>
+
+<pre>
+function baz (n) { return n - 5 }
+</pre>
+
+<div>
+or we can create an anonymous function inline and assign it to a variable
+<span class="code">baz</span>, which has the same effect:
+</div>
+
+<pre>
+var baz = function (n) { return n - 5 }
+</pre>
+
+<div>
+If functions can be assigned to variables, then they can also be arguments!
+A function that accepts functions as arguments is called a
+<b>higher order function</b>. Let's write one!
+</div>
+
+<pre>
+function hop (n, f) {
+    return n + f()
+}
+</pre>
+
+<div>
+Our function <span class="code">hop()</span> takes a number,
+<span class="code">n</span>, and a function,
+<span class="code">f</span> as parameters.
+It calls <span class="code">f()</span> and adds
+<span class="code">n</span> to the result.
+</div>
+
+<div>
+Let's test it! First we'll need a function to use as a parameter.
+</div>
+
+<pre>
+function hop (n, f) {
+    return n + f()
+}
+
+function g () { return 11 }
+var res = hop(33, g)
+console.log(res)
+</pre>
+
+<div>
+<span class="code">hop()</span> uses our function <span class="code">g</span>,
+which returns 11 and adds that to the 33 that we specified as
+<span class="code">n</span>. 11 + 33 == 44. It works!
+</div>
+
+<div>
+We can also put that definition for <span class="code">g</span> inline so we
+don't need to give it a name.
+</div>
+
+<pre>
+function hop (n, f) {
+    return n + f()
+}
+
+var res = hop(33, function () { return 11 })
+console.log(res)
+</pre>
+
+<div>
+Whenever you define a function, the function is said to <b>close over</b> the
+variables outside. Here's an example:
+</div>
+
+<pre>
+var pressed = false;
+function press () {
+    if (pressed) {
+        return 'boop'
+    }
+    else {
+        pressed = true
+        return 'beep'
+    }
+}
+
+console.log(press())
+console.log(press())
+console.log(press())
+console.log(press())
+</pre>
+
+<div>
+Executing this function repeatedly, the first time through
+<span class="code">pressed</span> is false, so
+<span class="code">'beep'</span> gets returned.
+For every time after that,
+<span class="code">pressed</span> is true, so the return value is 'boop'.
+That's just like the button from the first chapter!
+</div>
+
+<div>
+If we want, we can rewrite this function so that
+<span class="code">pressed</span> won't be available outside the function. 
+</div>
+
+<pre>
+var press = (function () {
+    var pressed = false;
+    return function () {
+        if (pressed) {
+            return 'boop'
+        }
+        else {
+            pressed = true
+            return 'beep'
+        }
+    }
+})()
+</pre>
+
+<div>
+The <span class="code">(...)()</span> around the function calls it immediately.
+Functions are special because they have their own scope, which means that
+variables declared inside of function can only be accessed from inside the
+function.
+</div>
+
+<div>
+Since functions are just values like any other, we can
+<span class="code">return</span>
+a function, and this function has access to <span class="code">pressed</span>
+because it is inside the outer function!
+We just built a machine that stores state!
+</div>
+
+<div>
+Higher-order functions are so useful, they're baked into some array methods!
+</div>
+
+<pre>
+var xs = [ 3, 4, 5 ]
+var res = xs.map(function (x) { return x + 100 })
+console.dir(res)
+</pre>
+
+<div>
+In this example, <span class="code">.map()</span>
+takes a function that gets called for every element in the array.
+The return value of <span class="code">.map()</span> is a new array filled with
+all the return values from the function calls.
+In this case, <span class="code">[ 103, 104, 105 ]</span>.
+</div>
+
+<div>
+Arrays have <span class="code">.filter()</span> too, which lets you
+return only certain elements from an array.
+Suppose you have a list of the integers from 0 to 10 inclusive and you only want
+the odd ones:
+</div>
+
+<pre>
+var xs = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+var odds = xs.filter(function (x) {
+    return x % 2 === 1
+})
+console.dir(odds)
+</pre>
+
+<div>
+The <span class="code">%</span> operator performs modulo arithmetic, which is
+pretty much just the remainder value of a division operation.
+Odd numbers have a remainder of <span class="code">1</span> when divided by
+<span class="code">2</span>.
+</div>
+
+<div>
+Suppose we want to sum the values from 1 to 10 inclusive. We can use
+<span class="code">.reduce()</span> for that!
+</div>
+
+<pre>
+var xs = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+var sum = xs.reduce(function (s, x) {
+    return s + x
+}, 0)
+console.log(sum)
+</pre>
+
+<div>
+<span class="code">.reduce()</span> works by taking a function as its first
+parameter and a starting value as its second.
+The function's first argument is the state and the second argument is the value
+of the item in the array. The return value of the function becomes the new state
+value in the next iteration or the return value of
+<span class="code">.reduce()</span> if there are no more elements to crawl.
+</div>
+
+<div>
+When we sum up a series of numbers, the running sum is our state and we start
+counting at 0. Each step, the new running sum is just the old running sum plus
+the value of the item in the list!
+</div>

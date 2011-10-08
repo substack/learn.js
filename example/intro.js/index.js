@@ -45,9 +45,10 @@ units.push({
 });
 
 units.push({
-    title : 'loops'
+    title : 'higher order functions',
+    filename : 'hop.html'
 });
 
 units.push({
-    title : 'higher order functions'
+    title : 'loops'
 });
