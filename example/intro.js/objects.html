@@ -1,0 +1,43 @@
+<div>
+Objects are data types that can hold other pieces of data. In javascript, every
+piece of data is actually an object, but usually objects are created using
+object literal notation, like this:
+</div>
+
+<pre>
+var obj = { a : 2, b : 'hooray' }
+</pre>
+
+<div>
+To pull out an object, you can use the dot (<span class="code">.</span>)
+operator with a key name. Try these:
+</div>
+
+<pre>
+obj.a
+obj.b
+</pre>
+
+<div>
+You can also use square brackets to look up values from an object:
+</div>
+
+<pre>
+obj['a']
+obj["b"]
+</pre>
+
+<div>
+With square brackets, you can use a variable to hold the key. Try this in the
+REPL:
+</div>
+
+<pre>
+var x = 'b'
+obj[x]
+</pre>
+
+<div>
+If you try to look up a value that doesn't exist, you'll get
+<span class="code">undefined</span>.
+</div>

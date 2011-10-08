@@ -19,7 +19,9 @@ units.push({
 });
 
 units.push({
-    title : 'objects'
+    title : 'objects',
+    filename : 'objects.html',
+    script : 'objects.js'
 });
 
 units.push({
