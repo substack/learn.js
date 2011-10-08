@@ -5,7 +5,21 @@ var argv = require('optimist')
     .argv
 ;
 var path = require('path');
-var units = require(path.resolve(process.cwd(), argv._[0]));
+var fs = require('fs');
+
+var unitPath = path.resolve(process.cwd(), argv._[0]);
+var units = require(unitPath).map(function (unit) {
+    if (!unit.body && unit.filename) {
+        var file = path.resolve(unitPath, unit.filename);
+        unit.body = fs.readFileSync(file, 'utf8');
+    }
+    
+    if (unit.script) {
+        var script = path.resolve(unitPath, unit.script);
+        unit.scriptBody = fs.readFileSync(script, 'utf8');
+    }
+    return unit;
+});
 
 var express = require('express');
 var app = express.createServer();

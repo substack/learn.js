@@ -1,4 +1,4 @@
-var units = [];
+var units = module.exports = [];
 
 units.push({
     title : 'what programming is',
@@ -39,18 +39,4 @@ units.push({
 
 units.push({
     title : 'higher order functions'
-});
-
-var fs = require('fs');
-module.exports = units.map(function (unit) {
-    if (!unit.body && unit.filename) {
-        unit.body = fs.readFileSync(__dirname + '/' + unit.filename, 'utf8');
-    }
-    
-    if (unit.script) {
-        unit.scriptBody = fs.readFileSync(
-            __dirname + '/' + unit.script, 'utf8'
-        );
-    }
-    return unit;
 });
