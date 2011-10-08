@@ -14,7 +14,8 @@ units.push({
 
 units.push({
     title : 'types',
-    filename : 'types.html'
+    filename : 'types.html',
+    script : 'types.js'
 });
 
 units.push({

@@ -1,6 +1,6 @@
 <div>
 In computer programming, pieces of data have <b>types</b>.
-For instance, when you use javascript as a calculator, you're mostly dealing
+For instance, when you use javascript as a typesulator, you're mostly dealing
 with the Number type.
 </div>
 
@@ -30,5 +30,66 @@ Here are some builtin types:
 </ul>
 
 <div>
-In the last section, 
+In javascript you can use the <span class="code">typeof</span> keyword to check
+what type an object is. Try these lines in the REPL:
 </div>
+
+<pre>
+typeof 42
+typeof "wooo"
+typeof false
+</pre>
+
+<div>
+Use the REPL to determine the types of the following expressions:
+</div>
+
+<table>
+  <tr>
+    <th class="first">expression</th>
+    <th>type</th>
+    <th class="last">status</th>
+  </tr>
+  <tr>
+    <td>55.5</td>
+    <td><input type="text" class="value"></td>
+    <td><input type="button" id="types-0" value="check"></td>
+    <td class="ok">---</td>
+  </tr>
+  <tr>
+    <td>"ahoy thar!"</td>
+    <td><input type="text" class="value"></td>
+    <td><input type="button" id="types-1" value="check"></td>
+    <td class="ok">---</td>
+  </tr>
+  <tr>
+    <td>Math.sin(Math.PI)</td>
+    <td><input type="text" class="value"></td>
+    <td><input type="button" id="types-2" value="check"></td>
+    <td class="ok">---</td>
+  </tr>
+  <tr>
+    <td>{ a : 2, b : 3, c : 5 }</td>
+    <td><input type="text" class="value"></td>
+    <td><input type="button" id="types-3" value="check"></td>
+    <td class="ok">---</td>
+  </tr>
+  <tr>
+    <td>'beep' + 33</td>
+    <td><input type="text" class="value"></td>
+    <td><input type="button" id="types-4" value="check"></td>
+    <td class="ok">---</td>
+  </tr>
+  <tr>
+    <td>5 &gt; 10</td>
+    <td><input type="text" class="value"></td>
+    <td><input type="button" id="types-5" value="check"></td>
+    <td class="ok">---</td>
+  </tr>
+  <tr>
+    <td>true || false</td>
+    <td><input type="text" class="value"></td>
+    <td><input type="button" id="types-6" value="check"></td>
+    <td class="ok">---</td>
+  </tr>
+</table>
