@@ -1,5 +1,6 @@
 var $ = require('jquery-browserify');
 var cookie = require('cookie-cutter');
+var vm = require('vm');
 
 var stringify = require('./stringify');
 var namesList = require('./names_list');
@@ -56,12 +57,27 @@ module.exports = function (remote, conn) {
             $('<span>').text('>').appendTo(this);
             
             var context = {};
+            vm.runInNewContext('1+1', context);
+            var ignore = Object.keys(context).reduce(function (acc, key) {
+                acc[key] = context[key];
+                return acc;
+            }, {});
+            context = {};
+            
             var form = $('<form>').submit(function (ev) {
                 ev.preventDefault();
                 
                 var s = input.val();
                 try {
-                    var res = eval(s);
+                    var res = vm.runInNewContext(s, context);
+                    context = Object.keys(context)
+                        .reduce(function (acc, key) {
+                            if (!ignore.hasOwnProperty(key)) {
+                                acc[key] = context[key];
+                            }
+                            return acc;
+                        }, {})
+                    ;
                 }
                 catch (err) {
                     $('<div>')

@@ -220,6 +220,7 @@ body {
 
 .repl .output {
     white-space: pre;
+    word-wrap: break-word;
     font-size: 20px;
     font-weight: bold;
 }
