@@ -183,6 +183,31 @@ Odd numbers have a remainder of <span class="code">1</span> when divided by
 </div>
 
 <div>
+If you just want to loop over the elements of an array without a return value,
+use <span class="code">.forEach()</span>!
+</div>
+
+<pre>
+var words = [ 'The', 'quick', 'brown', 'fox', 'is', 'lazy.')
+words.forEach(function (word) {
+    console.log(word)
+})
+</pre>
+
+<div>
+There's no need to assign to a variable either if you don't want to.
+</div>
+
+<pre>
+console.log('Why was 6 afraid of 7?')
+console.log('because...')
+
+[ 7, 8, 9 ].forEach(function (n) {
+    console.log(n)
+})
+</pre>
+
+<div>
 Suppose we want to sum the values from 1 to 10 inclusive. We can use
 <span class="code">.reduce()</span> for that!
 </div>

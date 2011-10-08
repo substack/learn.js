@@ -50,5 +50,6 @@ units.push({
 });
 
 units.push({
-    title : 'loops'
+    title : 'loops',
+    filename : 'loops.html'
 });
