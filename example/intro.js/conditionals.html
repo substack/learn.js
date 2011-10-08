@@ -1,0 +1,166 @@
+<div>
+Sometimes, you might want to have your program behave differently depending on
+the result of some expression. Use an <span class="code">if</span> block for
+that!
+</div>
+
+<pre>
+var z = true
+if (z) {
+    console.log('z is true!')
+}
+</pre>
+
+<div>
+Now change the value of <span class="code">z</span>:
+</div>
+
+<pre>
+var z = false
+if (z) {
+    console.log('z is true!')
+}
+</pre>
+
+<div>
+...the message no longer gets printed!
+There is another type of block that can follow an <span class="code">if</span>
+block that will fire if the <span class="code">if</span> condition fails:
+<span class="else">else</span>!
+</div>
+
+<pre>
+var z = false
+if (z) {
+    console.log('z is true!')
+}
+else {
+    console.log('z is false!')
+}
+</pre>
+
+<div>
+You can put any single expression into an if's condition.
+The value of the expression will be coerced into a boolean the same as wrapping
+a call to <span class="code">Boolean()</span>
+around the value yourself.
+</div>
+
+<div>
+You can create boolean expressions to create lots of types of tests.
+Here are some operators that perform tests and return a boolean value:
+</div>
+
+<table>
+  <tr>
+    <th>operator</th>
+    <th>name</th>
+  </tr>
+  <tr>
+    <td>&lt;</td>
+    <td>less than</td>
+  </tr>
+  <tr>
+    <td>&lt;=</td>
+    <td>less than or equal to</td>
+  </tr>
+  <tr>
+    <td>&gt;</td>
+    <td>greater than</td>
+  </tr>
+  <tr>
+    <td>&gt;=</td>
+    <td>greater than or equal to</td>
+  </tr>
+  <tr>
+    <td>==</td>
+    <td>is equal (coercive)</td>
+  </tr>
+  <tr>
+    <td>===</td>
+    <td>is equal (strict)</td>
+  </tr>
+</table>
+
+<div>
+Try modifying this program for all of the different types of boolean test
+operators and different values for <span class="code">n</span>:
+</div>
+
+<pre>
+var n = 3
+
+if (n &lt; 5) {
+    console.log('n is less than 5!')
+}
+</pre>
+
+<div>
+You could also assign the result of the test to a variable:
+</div>
+
+<pre>
+var n = 3
+var b = n &lt; 5
+
+if (b) {
+    console.log('n is less than 5!')
+}
+</pre>
+
+<div>
+These boolean operators will help to string boolean expressions together:
+</div>
+
+<table>
+  <tr>
+    <th>operator</th>
+    <th>name</th>
+  </tr>
+  <tr>
+    <td>&amp;&amp;</td>
+    <td>and</td>
+  </tr>
+  <tr>
+    <td>||</td>
+    <td>or</td>
+  </tr>
+</table>
+
+<div>
+Try building some compound statements like these:
+</div>
+
+<pre>
+var x = 3
+var y = 2
+
+if (x &lt; 5 &amp;&amp; y &gt; 1) {
+    console.log('true!')
+}
+else {
+    console.log('false!')
+}
+</pre>
+
+<div>
+You can also chain together more conditional statements with
+<span class="code">else if</span>:
+</div>
+
+<pre>
+var n = 4
+if (x &lt;= 3) {
+  console.log('x is less than or equal to 3!')
+}
+else if (x === 8) {
+  console.log('x is eight!')
+}
+else {
+  console.log('x is something else!')
+}
+</pre>
+
+<div>
+You can put in as many <span class="code">else if</span>s as you like!
+</div>
