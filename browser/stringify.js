@@ -10,14 +10,20 @@ module.exports = function (obj) {
             s += '...';
         }
         else if (Array.isArray(node)) {
-            this.before(function () { s += '[ ' });
+            this.before(function () {
+                s += '[' + (this.keys.length ? ' ' : '');
+            });
             this.post(function (child) {
                 if (!child.isLast) s += ', ';
             });
-            this.after(function () { s += ' ]' });
+            this.after(function () {
+                s += (this.keys.length ? ' ' : '') + ']';
+            });
         }
         else if (typeof node == 'object') {
-            this.before(function () { s += '{ ' });
+            this.before(function () {
+                s += '{' + (this.keys.length ? ' ' : '');
+            });
             this.pre(function (x, key) {
                 to_s(key);
                 s += ' : ';
@@ -25,7 +31,9 @@ module.exports = function (obj) {
             this.post(function (child) {
                 if (!child.isLast) s += ', ';
             });
-            this.after(function () { s += ' }' });
+            this.after(function () {
+                s += (this.keys.length ? ' ' : '') + '}';
+            });
         }
         else if (typeof node == 'string') {
             s += '"' + node.toString().replace(/"/g, '\\"') + '"';

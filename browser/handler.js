@@ -49,6 +49,7 @@ module.exports = function (remote, conn) {
         });
         
         $('.repl').each(function () {
+            var repl = $(this);
             var output = $('<div>')
                 .addClass('output')
                 .appendTo(this)
@@ -85,7 +86,7 @@ module.exports = function (remote, conn) {
                         .text(err.toString())
                         .appendTo(output)
                     ;
-                    $(this).scrollTop(100000);
+                    repl.scrollTop(repl[0].scrollHeight || 100000);
                     return;
                 }
                 
@@ -111,6 +112,8 @@ module.exports = function (remote, conn) {
                         .appendTo(output)
                     ;
                 }
+                
+                repl.scrollTop(repl[0].scrollHeight || 100000);
             }).appendTo(this);
             
             var input = $('<input>').appendTo(form);
