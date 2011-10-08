@@ -77,8 +77,16 @@ Here are some operators that perform tests and return a boolean value:
     <td>is equal (coercive)</td>
   </tr>
   <tr>
+    <td>!=</td>
+    <td>not equal (coercive)</td>
+  </tr>
+  <tr>
     <td>===</td>
     <td>is equal (strict)</td>
+  </tr>
+  <tr>
+    <td>!==</td>
+    <td>not equal (strict)</td>
   </tr>
 </table>
 
@@ -109,7 +117,8 @@ if (b) {
 </pre>
 
 <div>
-These boolean operators will help to string boolean expressions together:
+These binary boolean operators will help to string boolean expressions
+together:
 </div>
 
 <table>
@@ -164,3 +173,14 @@ else {
 <div>
 You can put in as many <span class="code">else if</span>s as you like!
 </div>
+
+There is another type of boolean operator which is unary like
+<span class="code">++</span> that we saw previously. It's the NOT operator and
+it's just a <span class="code">!</span>. It returns the opposite boolean value.
+
+<pre>
+var b = false
+if (!b) {
+    console.log('not b is true!')
+}
+</pre>
