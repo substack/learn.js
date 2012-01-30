@@ -3,7 +3,7 @@
   "description": "Presentation tool for teaching interactive lessons",
   "analyze": "false",
   "subdomain": "learn.js",
-  "version": "0.0.0-4",
+  "version": "0.0.0-5",
   "repository": {
     "type": "git",
     "url": "git://github.com/substack/learn.js.git"

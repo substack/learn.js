@@ -33,6 +33,14 @@ body {
     font-size: 25px;
 }
 
+#header-name a:link {
+    color: white;
+}
+
+#header-name a:visited {
+    color: white;
+}
+
 #content {
     width: 100%;
     height: 400px;
