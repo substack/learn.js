@@ -1,9 +1,13 @@
 #!/usr/bin/env node
+/*
 var argv = require('optimist')
     .demand(1)
     .usage('Usage: $0 [lesson]')
     .argv
 ;
+*/
+var argv = { _ : [ 'example/intro.js' ] };
+
 var path = require('path');
 var fs = require('fs');
 
@@ -24,10 +28,10 @@ var units = require(unitPath).map(function (unit) {
 var express = require('express');
 var app = express.createServer();
 app.use(express.static(__dirname + '/static'));
+var port = argv.port || 8000;
+app.listen(port);
 
 var dnode = require('dnode');
 dnode(require('./lib/service')(units)).listen(app);
 
-var port = argv.port || 8000;
-app.listen(port);
 console.log('Listening on :' + port);

@@ -1,41 +1,46 @@
 {
-    "name" : "learn.js",
-    "description" : "Presentation tool for teaching interactive lessons",
-    "version" : "0.0.0",
-    "repository" : {
-        "type" : "git",
-        "url" : "git://github.com/substack/learn.js.git"
-    },
-    "bin" : {
-        "learn.js" : "server.js"
-    },
-    "keywords" : [
-        "learn",
-        "education",
-        "classroom",
-        "interactive"
-    ],
-    "directories" : {
-        "lib" : ".",
-        "example" : "example",
-        "test" : "test"
-    },
-    "dependencies" : {
-        "jquery-browserify" : "1.6.x",
-        "express" : "2.4.x",
-        "dnode" : "0.8.x",
-        "browserify" : "1.5.x",
-        "traverse" : "0.5.x",
-        "cookie-cutter" : "0.0.x",
-        "jsonify" : "0.0.x"
-    },
-    "engines" : {
-        "node" : ">=0.4.0"
-    },
-    "license" : "MIT",
-    "author" : {
-        "name" : "James Halliday",
-        "email" : "mail@substack.net",
-        "url" : "http://substack.net"
-    }
+  "name": "learn.js",
+  "description": "Presentation tool for teaching interactive lessons",
+  "analyze": "false",
+  "subdomain": "learn.js",
+  "version": "0.0.0-4",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/substack/learn.js.git"
+  },
+  "bin": {
+    "learn.js": "./server.js"
+  },
+  "keywords": [
+    "learn",
+    "education",
+    "classroom",
+    "interactive"
+  ],
+  "directories": {
+    "lib": ".",
+    "example": "example",
+    "test": "test"
+  },
+  "dependencies": {
+    "jquery-browserify": "1.6.x",
+    "express": "2.5.x",
+    "dnode": "0.8.x",
+    "browserify": "1.5.x",
+    "traverse": "0.5.x",
+    "cookie-cutter": "0.0.x",
+    "jsonify": "0.0.x"
+  },
+  "scripts": {
+    "start": "server.js"
+  },
+  "engines": {
+    "node": ">=0.4.0"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "James Halliday",
+    "email": "mail@substack.net",
+    "url": "http://substack.net"
+  }
 }
